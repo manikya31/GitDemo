@@ -85,8 +85,14 @@ public class StandAloneTest {
 		
 		List<WebElement> menProductsList = driver.findElements(By.cssSelector(".card-body b"));
 		
-		Boolean matchProd = menProductsList.stream().anyMatch(product -> product.getText().contains("ADIDAS"));
-		Assert.assertTrue(matchProd);
+		Boolean menMatchProd = menProductsList.stream().anyMatch(product -> product.getText().contains("ADIDAS"));
+		Assert.assertTrue(menMatchProd);
+		
+		
+		List<WebElement> womenProductsList = driver.findElements(By.cssSelector(".card-body b"));
+		Boolean womenMatchProd = womenProductsList.stream().anyMatch(product -> product.getText().contains("COAT"));
+		Assert.assertTrue(womenMatchProd);
+		
 		
 //		for(int i = 0;i<products.size();i++) {
 //		   System.out.println(products.get(i).findElement(By.cssSelector(".card .card-body h5 b")).getText());
