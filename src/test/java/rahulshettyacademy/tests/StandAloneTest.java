@@ -80,6 +80,13 @@ public class StandAloneTest {
 		driver.findElement(By.cssSelector(".action__submit")).click();
 		System.out.println("Order Id is "+driver.findElement(By.cssSelector("label[class='ng-star-inserted']")).getText());
 		
+		driver.findElement(By.cssSelector("button[routerlink='/dashboard/']")).click();
+		driver.findElement(By.xpath("(//label[text()='men'])[2]")).click();
+		
+		List<WebElement> menProductsList = driver.findElements(By.cssSelector(".card-body b"));
+		
+		Boolean matchProd = menProductsList.stream().anyMatch(product -> product.getText().contains("ADIDAS"));
+		Assert.assertTrue(matchProd);
 		
 //		for(int i = 0;i<products.size();i++) {
 //		   System.out.println(products.get(i).findElement(By.cssSelector(".card .card-body h5 b")).getText());
