@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
 
 public class StandAloneTest {
 
@@ -87,6 +88,8 @@ public class StandAloneTest {
 		
 		Boolean matchProd = menProductsList.stream().anyMatch(product -> product.getText().contains("ADIDAS"));
 		Assert.assertTrue(matchProd);
+		
+		System.out.println("On DEVELOP PST BRANCH");
 		
 //		for(int i = 0;i<products.size();i++) {
 //		   System.out.println(products.get(i).findElement(By.cssSelector(".card .card-body h5 b")).getText());
